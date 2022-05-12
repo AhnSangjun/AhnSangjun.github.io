@@ -3,8 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=egde">
-        <meta name="viewport" content="width=device-width, initia
-        l-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>웰컴랜드 회원가입</title>
 
         <!-- Bootstrap Css -->
@@ -38,15 +37,15 @@
                  -webkit-border-redius: 10px;
                  -moz-border-redius: 10px;
                  border-redius: 10px;
-                 -webkit-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);
-                 -moz-box--shdow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);
-                 box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);
+                 -webkit-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0);
+                 -moz-box--shdow: 0 8px 20px 0 rgba(0, 0, 0, 0);
+                 box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0);
             }
         </style>
 
     </head>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
     <body>
         <div class="container">
             <div class="input-form-background row">
@@ -64,7 +63,7 @@
                                     maxlength="20">
                                     <span class="step_ur1">@ante.com</span>
                                 </span>
-                                <span class="error_next_box" id="idMsg" style="display:none"
+                                <span class="erro_next_box" id="idMsg" style="display:none"
                                 aria-live="asstertlive"></span>
                             </div>
                             <div class="join_row">
@@ -95,24 +94,87 @@
                                 <span class="erro_next_box" id="pswd2Msg" style aria-live="as
                                 sertive">필수 정보입니다.</span>
                             </div>
-                            <div class="join_content"> 
-                        <form class="vaildation-form" novalidate>
-                        <div class="row">
-                            <div class="col-md-6 md-3">
-                                <label for="name">이름</label>
-                                 <input type="text" class="form-control" id="n
-                                 ame" placeholder="" value="" required>
-                                 <div class="invaid-fedeback">
-                                     이름을 입력해주세요.
-                                 </div>
+                            </div>
+                            <!-- // 아이디,비밀번호 입력-->
+                            <!-- // 이름,생년월일 입력-->
+                            <div class="row_group">
+                                <!-- lang = ko_KR -->
+                                <div class="join_row">
+                                    <h3 class="join_title">
+                                        <label for="name">이름</label>
+                                    </h3>
+                                    <span class="ps_box_right_space">
+                                        <input type="text" id="name" name="name" title="이름" class=
+                                        "int" maxlength="40">
+                                    </span>
+                                    <span class="erro_next_box" id="nameMsg" style="display:none"
+                                    aria-live="assertlive"></span>
                                 </div>
-                                <div class="col-md-6 md-3">
-                                    <label for="nicname">별명</label>
-                                    <input type="text" class="form-control" id="n
-                                    icname" placeholder="" value="" required>
-                                    <div class="invaid-fedeback">
-                                        별명을 입력해주세요.
+                            </div> 
+                            <!-- lang = ko_KR -->
+                            <div class="join_row join_birthday">
+                                <h3 class="join_title">
+                                    <label for="yy">생년월일</label>
+                                </h3>
+                                <div class="bir_wrap">
+                                    <div class="bir_yy">
+                                        <span class="ps_box">
+                                            <input type="text" id="yy" placeholder="년(4자)" aira-
+                                            laber="년(4자)" class="int" maxlength="4">
+                                        </span>
                                     </div>
+                                </div>
+                                <div class="bir_mm">
+                                    <span class="ps_box">
+                                        <select id="mm" class="sel" aria-label="월">
+                                            <option value>월</option>
+                                            <option value="01">
+                                                " 1 "
+                                            </option>
+                                            <option value="02">
+                                                " 2 "
+                                            </option>
+                                            <option value="03">
+                                                " 3 "
+                                            </option>
+                                            <option value="04">
+                                                " 4 "
+                                            </option>
+                                            <option value="05">
+                                                " 5 "
+                                            </option>
+                                            <option value="06">
+                                                " 6 "
+                                            </option>
+                                            <option value="07">
+                                                " 7 "
+                                            </option>
+                                            <option value="08">
+                                                " 8 "
+                                            </option>
+                                            <option value="09">
+                                                " 9 "
+                                            </option>
+                                            <option value="10">
+                                                " 10 "
+                                            </option>
+                                            <option value="11">
+                                                " 11 "
+                                            </option>
+                                            <option value="12">
+                                                " 12 "
+                                            </option>
+                                        </select>
+                                    </span>
+                                </div>
+                                <div class="bir_dd">
+                                    <span class="ps_box">
+                                        <input type="text" id="dd" placeholder="일" aria-label=
+                                        "일" class="int" maxlength="2">
+                                        <label for="dd" class="lb1"></label>
+                                    </span>
+                                </div>
+                            </div>
         </div>
        
     </body>
