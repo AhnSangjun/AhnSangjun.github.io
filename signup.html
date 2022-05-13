@@ -47,53 +47,6 @@
             <!--// 모달창 -->
             <hr/>
             <!-- 본문 들어가는 부분 -->
-
-           
-            <form class="form-horizontal" role="form" method="post" action="javascript:alert( 'success!' );">
-                <div class="form-group">
-                    <label for="provision" class="col-lg-2 control-label">회원가입약관</label>
-                    <div class="col-lg-10" id="provision">
-                        <textarea class="form-control" rows="8" style="resize:none">약관동의
-블라블라블라블라블라블라블라블라블라블라블라블라
-블라블라블라블라블라블라블라블라블라블라블라블라
-블라블라블라블라블라블라블라블라블라블라블라블라.................
-                        </textarea>
-                        <div class="radio">
-                            <label>
-                                <input type="radio" id="provisionYn" name="provisionYn" value="Y" autofocus="autofocus" checked>
-                                동의합니다.
-                            </label>
-                        </div>
-                        <div class="radio">
-                            <label>
-                                <input type="radio" id="provisionYn" name="provisionYn" value="N">
-                                동의하지 않습니다.
-                            </label>
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="memberInfo" class="col-lg-2 control-label">개인정보취급방침</label>
-                    <div class="col-lg-10" id="memberInfo">
-                        <textarea class="form-control" rows="8" style="resize:none">개인정보의 항목 및 수집방법
-블라블라블라블라블라블라블라블라블라블라블라블라                        
-블라블라블라블라블라블라블라블라블라블라블라블라
-블라블라블라블라블라블라블라블라블라블라블라블라.................
-                        </textarea>
-                        <div class="radio">
-                            <label>
-                                <input type="radio" id="memberInfoYn" name="memberInfoYn" value="Y" checked>
-                                동의합니다.
-                            </label>
-                        </div>
-                        <div class="radio">
-                            <label>
-                                <input type="radio" id="memberInfoYn" name="memberInfoYn" value="N">
-                                동의하지 않습니다.
-                            </label>
-                        </div>
-                    </div>
-                </div>
 <!-- 아이디입력-->
 <div class="form-group" id="divId">
 <!-- lang = ko_KR --> 
@@ -148,6 +101,18 @@
     <div class="col-lg-10">
         <input type="tel" class="form-control onlyNumber" id="phoneNumber" data-rule-required="true" placeholder="-를 제외하고 숫자만 입력하세요." maxlength="11">
     </div>
+</div>
+<div class="form-group" id="divAddress">
+    <label for="inputAddress" class="col-lg-2 control-label">주소</label>
+    <div class="col-lg-10">
+        <input type="text" class="form-control" id="address" data-rule-required="true" placeholder="주소" maxlength="11">
+    </div>
+</div>
+<div class="form-group" id="divAdress2">
+    <label for="inputAddress2" class="col-lg-2 control-label">상세주소</label>
+    <div class="col-lg-10">
+        <input type="text" class="form-control" id="address2" data-rule-required="true" placeholder="상세주소" maxlength="11">
+    </div> 
 </div>
 <div class="form-group">
     <label for="inputPhoneNumber" class="col-lg-2 control-label">성별</label>
@@ -320,6 +285,31 @@
             }
         });
         
+        $('#address').keyup(function(event){
+
+            var divAddress = $('#divAddress');
+
+            if($.trim($('#address').val())==""){
+                divAddress.removeClass("has-success");
+                divAddress.addClass("has-error");
+            }else{
+                divAddress.removeClass("has-error");
+                divAddress.addClass("has-success");
+            }
+        });
+
+        $('#address2').keyup(function(event){
+
+            var divAddress2 = $('#divAddress2');
+
+            if($.trim($('#address2').val())==""){
+                divAddress2.removeClass("has-success");
+                divAddress2.addClass("has-error");
+            }else{
+                divAddress2.removeClass("has-error");
+                divAddress2.addClass("has-success");
+            }
+        });
         
         //------- validation 검사
         $( "form" ).submit(function( event ) {
@@ -334,6 +324,8 @@
             var divNickname = $('#divNickname');
             var divEmail = $('#divEmail');
             var divPhoneNumber = $('#divPhoneNumber');
+            var divAddress = $('#divAddress');
+            var divAddress2 = $('#divAddress2');
             
             //회원가입약관
             if($('#provisionYn:checked').val()=="N"){
@@ -489,6 +481,33 @@
                 divPhoneNumber.addClass("has-success");
             }
             
+            //주소
+            if($('#address').val()==""){
+                modalContents.text("주소를 입력하여 주시기 바랍니다.");
+                modal.modal('show');
+
+                divAddress.removeClass("has-success");
+                divAddress.addClass("has-error");
+                $('#address').focus();
+                return false;
+            }else{
+                divAddress.removeClass("has-error");
+                divAddress.addClass("has-success");
+            }
+
+            //상세주소
+            if($('#address2').val()==""){
+                modalContents.text("상세주소를 입력하여 주시기 바랍니다.");
+                modal.modal(show);
+
+                divAddress2.removeClass("has-success");
+                divAddress2.addClass("has-error");
+                $('#address2').focus();
+                return false;
+            }else{
+                divAddress2.removeClass("has-success");
+                divAddress2.addClass("has-success");
+            }
         
         });
         
